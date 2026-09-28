@@ -1,0 +1,19 @@
+categories:
+  - name: Finance
+    description: Monetary institutions, bank accounts (BBVA, Santander, CaixaBank, Revolut, N26, Wise), fiscal authorities (Hacienda, AEAT, IRS), credit/debit card movements, mortgages, loan statements, investment brokers, crypto exchanges, payment gateway transaction notices (PayPal, Stripe payouts), and recurring utility bills (electricity, gas, water, telecom contracts). Excludes consumer e-commerce order purchase receipts and merchandise packages (which belong to Shopping).
+  - name: Shopping
+    description: Consumer retail merchandise purchases, e-commerce order confirmations, invoices/receipts for purchased goods (Amazon, AliExpress, Zara, Shein, eBay, El Corte Inglés, supermarkets), courier and postal shipment tracking (Correos, Correos Express, SEUR, MRW, GLS, DHL, UPS, FedEx, Paack, CTT Express, InPost, Nacex, Boyacá, Amazon Logistics), dispatch alerts, out-for-delivery status, parcel locker/pickup point notices, return authorizations, and retail refunds.
+  - name: Career
+    description: Employment, recruitment, job applications, interview scheduling, professional networks (LinkedIn), software engineering toolchains and developer infrastructure (GitHub, GitLab, Docker, AWS, GCP, Vercel, Datadog), freelance client agreements, payroll, workplace communications, and B2B vendor tooling.
+  - name: Wellness
+    description: Healthcare providers, clinical appointments, dentist visits, laboratory diagnostic test results, hospital patient portals, medical insurance claims, pharmacy prescriptions, fitness tracking (Strava, Garmin, Apple Health), gym memberships, and mental health applications.
+  - name: Entertainment
+    description: Cultural events, concert/festival tickets, cinema and theater admissions, digital streaming subscriptions (Netflix, Spotify, HBO/Max, YouTube, Disney+), video gaming platforms (Steam, PlayStation, Nintendo, Xbox), hobbyist recreations, and leisure activities.
+  - name: Administration
+    description: Government agencies, digital certificate authorities (FNMT, Cl@ve, DGT, Seguridad Social), formal legal notices, municipal council taxes (IBI, padrón), compliance audits, identity verification, civil documentation, and statutory terms of service/privacy policy revisions.
+  - name: Education
+    description: Academic coursework, university communications, student registries, structured training curricula, online learning platforms (Coursera, Udemy, edX), certification exams, textbooks, and pedagogical instruction.
+  - name: Travel
+    description: Passenger transport logistics, flight reservations (Iberia, Ryanair, Vueling), train and bus journeys (Renfe, Ouigo, Iryo, Alsa), hotel and accommodation bookings (Airbnb, Booking.com), vehicle rentals, boarding passes, and transit itineraries.
+  - name: Misc
+    description: Strict residual fallback ONLY. Multi-topic unsegmented marketing digests, spam-like broadcasts, or automated system pings with zero identifiable functional domain. Must NEVER be chosen if there is any mention of shipments, package tracking, orders, travel itineraries, jobs, or healthcare.

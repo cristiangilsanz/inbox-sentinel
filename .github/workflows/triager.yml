@@ -1,0 +1,55 @@
+name: Triager
+
+on:
+  schedule:
+    # 06:35 Madrid time (UTC+2) -> 04:35 UTC
+    - cron: '35 4 * * *'
+    # 17:45 Madrid time (UTC+2) -> 15:45 UTC
+    - cron: '45 15 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
+
+concurrency:
+  group: inbox-sentinel-triager
+  cancel-in-progress: false
+
+jobs:
+  triager:
+    name: Run Triager
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'cristiangilsanz' && (github.event_name == 'schedule' || github.actor == 'cristiangilsanz')
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Inject OAuth Credentials & Token
+        env:
+          GMAIL_CREDENTIALS_JSON: ${{ secrets.GMAIL_CREDENTIALS_JSON }}
+          GMAIL_TOKEN_JSON: ${{ secrets.GMAIL_TOKEN_JSON }}
+        run: |
+          printf '%s' "$GMAIL_CREDENTIALS_JSON" > credentials.json
+          printf '%s' "$GMAIL_TOKEN_JSON" > token.json
+        shell: bash
+
+      - name: Run Triager
+        env:
+          AI_PROVIDER: gemini
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.5-flash-lite
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GMAIL_CREDENTIALS_PATH: ./credentials.json
+          GMAIL_TOKEN_PATH: ./token.json
+          GMAIL_CREDENTIALS_JSON: ${{ secrets.GMAIL_CREDENTIALS_JSON }}
+          GMAIL_TOKEN_JSON: ${{ secrets.GMAIL_TOKEN_JSON }}
+          ARCHIVE_AFTER_TRIAGE: false
+        run: npm start
