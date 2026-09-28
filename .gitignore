@@ -1,0 +1,47 @@
+# Build & Compilation outputs
+build/
+dist/
+out/
+*.tsbuildinfo
+
+# Dependencies
+.pnp/
+.pnp.js
+node_modules/
+
+# Environment variables & secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# Google OAuth Credentials & Cached Tokens (CRITICAL)
+client_secret*.json
+credentials.json
+token.json
+!credentials.json.example
+
+# Logs & Runtime debug files
+lerna-debug.log*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Operating System & IDEs
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
+*.njsproj
+*.ntvs*
+*.sln
+*.suo
+*.sw?
+
+# Scratch & Temporary data files
+pending_emails*.json
+*.temp
+*.tmp
